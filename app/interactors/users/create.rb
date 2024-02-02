@@ -1,4 +1,5 @@
 require 'interactor'
+require 'pry'
 
 module Users
   class Create
@@ -14,8 +15,8 @@ module Users
       user_exists?
       create_user
       authenticate_user
-    rescue StandardError => error
-      context.fail!(error: error.message)
+    rescue StandardError => e
+      context.fail!(error: e.message)
     end
 
     private

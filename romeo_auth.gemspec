@@ -9,13 +9,14 @@ Gem::Specification.new do |spec|
   spec.summary = 'Summary of RomeoAuth.'
   spec.description = 'Description of RomeoAuth.'
   spec.license = 'MIT'
+  spec.required_ruby_version = '>= 3.2.2'
 
-  spec.metadata['allowed_push_host'] = "http://mygemserver.com"
+  spec.metadata['allowed_push_host'] = 'http://mygemserver.com'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] =
-    "http://google.com"
-  spec.metadata['changelog_uri'] = "http://google.com"
+    'http://google.com'
+  spec.metadata['changelog_uri'] = 'http://google.com'
 
   spec.files =
     Dir.chdir(File.expand_path(__dir__)) do
@@ -23,7 +24,12 @@ Gem::Specification.new do |spec|
     end
 
   spec.add_dependency 'bcrypt'
+  spec.add_dependency 'interactor', '~> 3.0'
   spec.add_dependency 'jwt'
-  spec.add_dependency 'interactor'
   spec.add_dependency 'rails', '>= 7.1.3'
+  spec.add_dependency 'rubocop-performance'
+  spec.add_dependency 'rubocop-rails'
+  spec.add_dependency 'rubocop-rspec'
+
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end

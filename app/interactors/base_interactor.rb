@@ -8,7 +8,7 @@ module BaseInteractor
   end
 
   def method_valid?(method_name)
-    send(method_name)&.present? || false
+    send(method_name).present? || false
   end
 
   module ClassMethods

@@ -9,8 +9,8 @@ module Users
 
     def call
       user_authenticated? ? return_token : raise_error
-    rescue StandardError => error
-      context.fail!(error: error.message)
+    rescue StandardError => e
+      context.fail!(error: e.message)
     end
 
     private
@@ -24,7 +24,7 @@ module Users
     end
 
     def return_token
-      context.token = JsonWebToken.encode(user_id: user.id)
+      context.token = RomeoAuth::JsonWebToken.encode(user_id: user.id)
     end
 
     def raise_error
