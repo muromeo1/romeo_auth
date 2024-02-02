@@ -7,11 +7,11 @@
 name: "CI"
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 jobs:
-  test:
+  romeo_auth:
     runs-on: ubuntu-latest
     env:
       RAILS_ENV: test
