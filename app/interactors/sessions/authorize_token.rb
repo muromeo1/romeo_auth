@@ -1,0 +1,38 @@
+require 'interactor'
+
+module Sessions
+  class AuthorizeToken
+    include Interactor
+    include BaseInteractor
+
+    requires :token
+
+    def call
+      check_user_existence
+    rescue StandardError => e
+      context.fail!(error: e.message)
+    end
+
+    private
+
+    def user_id
+      @user_id ||= RomeoAuth::JsonWebToken.decode(token).try(:[], :user_id)
+    end
+
+    def user
+      @user ||= User.find_by(id: user_id)
+    end
+
+    def check_user_existence
+      user.present? ? return_user : return_error
+    end
+
+    def return_user
+      context.user = user
+    end
+
+    def return_error
+      raise 'Invalid token'
+    end
+  end
+end

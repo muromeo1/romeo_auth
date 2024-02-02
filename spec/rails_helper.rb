@@ -16,6 +16,19 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
 
+  # it'll run every request when test type == :request,
+  # since it's passed the action and the route to describe block
+  # as in:
+  #
+  # describe 'post /api/v1/users' do
+  #   it { expect(response.parsed_body['token']).to be_present }
+  # end
+  config.before(:each, type: :request) do
+    request, route = self.class.description.split
+
+    send(request, route, params:)
+  end
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
