@@ -4,9 +4,9 @@ module RomeoAuth
       result = Users::Authenticate.call(session_params)
 
       if result.success?
-        render json: { token: result.token, status: 201 }
+        render json: { token: result.token }, status: :created
       else
-        render json: { error: result.error, status: 422 }
+        render json: { error: result.error }, status: :unprocessable_entity
       end
     end
 

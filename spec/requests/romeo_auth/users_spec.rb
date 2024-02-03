@@ -12,6 +12,7 @@ RSpec.describe 'UsersController' do
   end
 
   describe 'post /api/v1/users' do
+    it { expect(response).to have_http_status(:created) }
     it { expect(response.parsed_body['token']).to be_present }
   end
 end
