@@ -26,7 +26,7 @@ RSpec.configure do |config|
   config.before(:each, type: :request) do
     request, route = self.class.description.split
 
-    send(request, route, params:)
+    send(request, route, params:, headers:)
   end
 
   config.before(:suite) do
