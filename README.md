@@ -11,6 +11,9 @@ RomeoAuth is a robust token-based authentication system designed to simplify use
 - **Current User Retrieval:** Introduces a current_user method, allowing easy access to the authenticated user within controllers.
 
 ## Usage
+### Routes
+Upon installation of RomeoAuth, routes for user and session functionalities will be seamlessly mounted in your Rails application within `/api/v1`. This automatic route mounting simplifies the integration process, allowing you to access the authentication endpoints effortlessly. The generated routes provide a clear and consistent structure for user creation, session handling, and authentication, ensuring a smooth experience as you incorporate authentication features into your project.
+
 ### Create an user:
 
 Route
