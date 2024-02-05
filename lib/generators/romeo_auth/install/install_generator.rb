@@ -14,6 +14,10 @@ module RomeoAuth
       def copy_user_model
         copy_file 'user_template.rb', 'app/models/user.rb'
       end
+
+      def copy_routes
+        copy_file 'routes_template.rb', 'config/routes.rb'
+      end
     end
   end
 end
