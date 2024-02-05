@@ -1,5 +1,14 @@
 # RomeoAuth
-A token base authenticator for API's
+RomeoAuth is a robust token-based authentication system designed to simplify user authentication for APIs in your Rails application. With an easy setup process, it automates the creation of user models, controllers, and authentication methods, allowing you to seamlessly integrate secure user authentication into your project.
+
+## Features
+- **User Model Generation:** Automatically creates a user model with essential attributes, such as name, email, password, and password confirmation.
+  
+- **Controller Automation:** Generates user and session controllers with the necessary methods to facilitate user creation and session handling.
+  
+- **Authenticable Method:** Provides an authenticable method, ensuring a secure and standardized approach to user authentication.
+  
+- **Current User Retrieval:** Introduces a current_user method, allowing easy access to the authenticated user within controllers.
 
 ## Usage
 ### Create an user:
@@ -45,6 +54,26 @@ Response:
   ```ruby
   { "token: "os039jg..." }
   ```
+***
+
+### Require authetication for controllers:
+
+In your controller, adds:
+```ruby
+class FooController < ApplicationController
+  before_action :authorize!
+end
+```
+
+Now all the requests to the controller will need to send token in header:
+```ruby
+{ "Authentication" => "e9sa083..." }
+```
+
+It's also possible to get the current user within the controller with method:
+```ruby
+current_user
+```
 
 ## Installation
 1 - Add this line to your application's Gemfile:
