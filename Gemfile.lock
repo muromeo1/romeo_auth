@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    romeo_auth (0.1.0)
+    romeo_auth (1.0.0)
       bcrypt
       interactor (~> 3.0)
       jwt
