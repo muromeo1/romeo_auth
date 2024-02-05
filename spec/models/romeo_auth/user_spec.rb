@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User do
+RSpec.describe RomeoAuth::User do
   subject(:model) { described_class.new }
 
   let(:errors) { model.errors.messages }

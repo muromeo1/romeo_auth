@@ -10,6 +10,10 @@ module RomeoAuth
       def copy_initializer
         copy_file 'initializer_template.rb', 'config/initializers/romeo_auth.rb'
       end
+
+      def copy_user_model
+        copy_file 'user_template.rb', 'app/models/user.rb'
+      end
     end
   end
 end

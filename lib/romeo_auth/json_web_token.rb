@@ -3,8 +3,8 @@ require 'jwt'
 module RomeoAuth
   class JsonWebToken
     class << self
-      def encode(payload, exp = 24.hours.from_now)
-        payload[:exp] = exp.to_i
+      def encode(payload)
+        payload[:exp] = RomeoAuth.config.expires_in.to_i
 
         JWT.encode(payload, RomeoAuth.config.secret_key_base)
       end
