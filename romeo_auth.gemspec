@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Murilo Romeo']
   spec.email = %w[muriloh65@gmail.com]
   spec.homepage = 'https://github.com/muromeo1/romeo_auth'
-  spec.summary = 'A token based API authentication'
+  spec.summary = 'A token based API authentication built in an engine'
   spec.description = 'A token based API authentication'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.2.2'
@@ -22,13 +22,10 @@ Gem::Specification.new do |spec|
       Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
     end
 
-  spec.add_dependency 'bcrypt'
+  spec.add_dependency 'bcrypt', '~> 3.1'
   spec.add_dependency 'interactor', '~> 3.0'
-  spec.add_dependency 'jwt'
-  spec.add_dependency 'rails', '>= 7.1.3'
-  spec.add_dependency 'rubocop-performance'
-  spec.add_dependency 'rubocop-rails'
-  spec.add_dependency 'rubocop-rspec'
+  spec.add_dependency 'jwt', '~> 2.7.1'
+  spec.add_dependency 'rails', '~> 7.1'
 
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
