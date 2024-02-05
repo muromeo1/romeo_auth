@@ -1,5 +1,4 @@
 require 'interactor'
-require 'pry'
 
 module Users
   class Create
