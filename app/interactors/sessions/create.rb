@@ -1,7 +1,7 @@
 require 'interactor'
 
-module Users
-  class Authenticate
+module Sessions
+  class Create
     include Interactor
     include BaseInteractor
 

@@ -1,7 +1,7 @@
 module RomeoAuth
   class SessionsController < ApplicationController
     def create
-      result = Users::Authenticate.call(session_params)
+      result = Sessions::Create.call(session_params)
 
       if result.success?
         render json: { token: result.token }, status: :created

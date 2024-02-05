@@ -34,7 +34,7 @@ module Users
     end
 
     def authenticate_user
-      context.token = Users::Authenticate.call(email:, password:).token
+      context.token = Sessions::Create.call(email:, password:).token
     end
   end
 end

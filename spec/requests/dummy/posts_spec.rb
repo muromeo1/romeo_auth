@@ -5,7 +5,7 @@ require 'rails_helper'
 
 RSpec.describe 'PostsController' do
   let(:user) { create(:user) }
-  let(:auth) { Users::Authenticate.call(email: user.email, password: user.password) }
+  let(:auth) { Sessions::Create.call(email: user.email, password: user.password) }
 
   let(:headers) { { 'Authorization' => auth.token } }
   let(:params) { {} }
