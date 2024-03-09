@@ -10,6 +10,16 @@ module RomeoAuth
       end
     end
 
+    def destroy
+      result = Sessions::Destroy.call(token:)
+
+      if result.success?
+        render json: { message: 'Session destroyed' }, status: :ok
+      else
+        render json: { error: result.error }, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def session_params

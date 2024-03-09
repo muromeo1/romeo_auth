@@ -25,3 +25,9 @@ Layout/LineLength:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 15
+
+RSpec/RepeatedExampleGroupDescription:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false

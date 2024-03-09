@@ -11,6 +11,10 @@ module RomeoAuth
         render json: { error: authorize_token.error }, status: :unprocessable_entity
       end
 
+      def token
+        @token ||= request.headers['Authorization']
+      end
+
       private
 
       def authorize_token
