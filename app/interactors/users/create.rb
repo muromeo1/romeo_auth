@@ -29,7 +29,7 @@ module Users
     end
 
     def create_user
-      context.user = User.create(context.to_h.merge({ email: }))
+      context.user = User.create(context.to_h)
     end
 
     def authenticate_user
